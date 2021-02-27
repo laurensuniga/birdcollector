@@ -22,7 +22,3 @@ urlpatterns = [
     path('', include('main_app.urls')),
 ]
 
-# urlpatterns = [
-#     path('', include('main_app.urls')),
-#     path('admin/', admin.site.urls),
-# ]
