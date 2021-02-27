@@ -30,7 +30,7 @@ class Bird(models.Model):
     return self.name
 
   def get_absolute_url(self):
-    return reverse('detail', kwargs={'cat_id': self.id})
+    return reverse('detail', kwargs={'bird_id': self.id})
 
   def fed_for_today(self):
     return self.feeding_set.filter(date=date.today()).count() >= len(MEALS)
@@ -52,11 +52,3 @@ class Feeding(models.Model):
   class Meta:
     ordering = ['-date']
 
-class Photo(models.Model):
-    # store the URL of the image on AWS
-    url = models.CharField(max_length=200)
-    # Relationship to the cat
-    bird = models.ForeignKey(Bird, on_delete=models.CASCADE)
-
-    def __str__(self):
-      return f"Photo for bird id #{self.cat_id} @ {self.url}"

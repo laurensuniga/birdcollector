@@ -22,25 +22,9 @@
       </div>
     </div>
 
-    <!-- Display the cats photo -->
-    {% for photo in bird.photo_set.all %}
-      <img src="{{ photo.url }}" alt="{{ photo.url }}" class="responsive-img card-panel">
-    {% empty %}
-      <div class="card-panel teal-text center-align">No Photos Uploaded</div>
-
-    {% endfor %}
-
-    <!-- Add photo form -->
-    <form action="{% url 'add_photo' cat.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
-      {% csrf_token %}
-
-      <input type="file" name="photo_file">
-      <br><br>
-      <input type="submit" class="btn" value="Upload Photo">
-    </form>
   </div>
   <div class="col s6">
-    <form action="{% url 'add_feeding' cat.id %}" method="post">
+    <form action="{% url 'add_feeding' bird.id %}" method="post">
       {% csrf_token %}
       {{ feeding_form.as_p }}
       <input type="submit" class="btn" value="Add Feeding">
