@@ -73,7 +73,6 @@
   </div>
 </div>
 
-<!-- Available Toys: -->
 <div class="col s6">
   <h3>Available Toys</h3>
   {% if available_toys.count %}
@@ -98,9 +97,8 @@
   {% endif %}
 </div>
 
-<!-- JS to create a date picker and init the meal dropdown -->
+
 <script>
-  // create a datepicker
   var dateEl = document.getElementById('id_date');
   M.Datepicker.init(dateEl, {
     format: 'yyyy-mm-dd',
@@ -109,7 +107,6 @@
     autoClose: true
   });
 
-  // initialize the meal select
   var selectEl = document.getElementById('id_meal');
   M.FormSelect.init(selectEl);
 </script>
